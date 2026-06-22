@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hiren Sanghavi — Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0f14;
+      --surface: #13161d;
+      --border: #1e2330;
+      --accent: #5b8cff;
+      --accent-soft: rgba(91,140,255,0.12);
+      --text: #e8eaf0;
+      --muted: #6b7280;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 4rem;
+      background: rgba(13,15,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 1.1rem;
+      color: var(--white); letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em;
+      text-transform: uppercase; text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 10rem 4rem 6rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -200px; left: -200px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(91,140,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 4rem;
+    }
+    
+    .hero-content { max-width: 650px; position: relative; }
+    
+    .hero-image-container {
+      flex-shrink: 0;
+      position: relative;
+    }
+    .hero-image {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      object-position: top; /* Prevents cropping hair from the top */
+      border-radius: 50%;   /* Makes the photo fully circular */
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow span { width: 24px; height: 1px; background: var(--accent); display: inline-block; }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800; line-height: 1.05;
+      color: var(--white); margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 520px; margin-bottom: 3rem; line-height: 1.8;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 0.85rem 2rem; border-radius: 6px;
+      background: var(--accent); color: var(--white);
+      font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline {
+      padding: 0.85rem 2rem; border-radius: 6px;
+      border: 1px solid var(--border); color: var(--text);
+      font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 400;
+      text-decoration: none; transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── STATS STRIP ── */
+    .stats {
+      display: flex; gap: 3rem; flex-wrap: wrap;
+      padding: 2rem 4rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem; font-weight: 700; color: var(--white);
+    }
+    .stat-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700; color: var(--white);
+      margin-bottom: 3rem; line-height: 1.2;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--surface); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      padding: 1.75rem; border: 1px solid var(--border); border-radius: 8px;
+      background: var(--bg); transition: border-color 0.25s;
+    }
+    .skill-card:hover { border-color: var(--accent); }
+    .skill-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .skill-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem; font-weight: 600; color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    .tag {
+      font-size: 0.72rem; padding: 0.25rem 0.65rem; border-radius: 4px;
+      background: var(--accent-soft); color: var(--accent); letter-spacing: 0.04em;
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline { display: flex; flex-direction: column; gap: 2rem; max-width: 760px; }
+    .tl-item {
+      display: grid; grid-template-columns: 140px 1fr; gap: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+    }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-date { font-size: 0.78rem; color: var(--muted); padding-top: 0.25rem; line-height: 1.6; }
+    .tl-role {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem;
+    }
+    .tl-company { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.75rem; }
+    .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .tl-bullets li {
+      font-size: 0.88rem; color: var(--muted); padding-left: 1rem; position: relative;
+    }
+    .tl-bullets li::before {
+      content: '—'; position: absolute; left: 0; color: var(--accent);
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--surface); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      padding: 2rem; border: 1px solid var(--border); border-radius: 8px;
+      background: var(--bg); display: flex; flex-direction: column; gap: 1rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .proj-header { display: flex; justify-content: space-between; align-items: flex-start; }
+    .proj-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--white);
+    }
+    .proj-acc {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem; font-weight: 800; color: var(--accent);
+    }
+    .proj-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .proj-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.25rem; }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-grid {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+    }
+    .cert-pill {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.4rem; border: 1px solid var(--border); border-radius: 6px;
+      background: var(--surface);
+    }
+    .cert-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .cert-name { font-size: 0.88rem; color: var(--text); font-weight: 400; }
+    .cert-by { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+    .contact-email {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 700; color: var(--white); text-decoration: none;
+      border-bottom: 2px solid var(--accent); padding-bottom: 4px;
+      transition: color 0.2s;
+    }
+    .contact-email:hover { color: var(--accent); }
+    .contact-links { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; }
+    .contact-links a {
+      font-size: 0.82rem; color: var(--muted); text-decoration: none;
+      text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.2s;
+    }
+    .contact-links a:hover { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 4rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer p { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero, section, .stats, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .tl-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .tl-date { padding-top: 0; }
+      
+      .hero-container {
+        flex-direction: column-reverse;
+        gap: 2.5rem;
+        text-align: center;
+      }
+      .hero-eyebrow { justify-content: center; }
+      .hero-ctas { justify-content: center; }
+      .hero-image {
+        width: 240px;
+        height: 240px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">HS</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-container">
+    
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span></span> Data Analyst</div>
+      <h1>Hiren<br /><em>Sanghavi</em></h1>
+      <p class="hero-sub">
+        Turning raw data into clear decisions — through machine learning, business intelligence, and thoughtful analysis.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="mailto:hirensm2004@gmail.com" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    
+    <div class="hero-image-container">
+      <img src="photo.jpg" alt="Hiren Sanghavi" class="hero-image" />
+    </div>
+
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-item">
+    <span class="stat-num">8.93</span>
+    <span class="stat-label">CGPA — VIT</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">15M+</span>
+    <span class="stat-label">Records Analyzed</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">92%</span>
+    <span class="stat-label">Model Accuracy</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">3+</span>
+    <span class="stat-label">Industry Projects</span>
+  </div>
+</div>
+
+<section id="skills">
+  <p class="section-label">Toolkit</p>
+  <h2>Skills & Technologies</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <div class="skill-title">Data Analysis</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-title">Machine Learning</div>
+      <div class="skill-tags">
+        <span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">EfficientNet</span><span class="tag">ViT</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📈</div>
+      <div class="skill-title">Business Intelligence</div>
+      <div class="skill-tags">
+        <span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">DAX</span><span class="tag">Excel</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🗄️</div>
+      <div class="skill-title">Databases</div>
+      <div class="skill-tags">
+        <span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">MS SQL</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📉</div>
+      <div class="skill-title">Visualization</div>
+      <div class="skill-tags">
+        <span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Power Query</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">💻</div>
+      <div class="skill-title">Languages</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span><span class="tag">Java</span><span class="tag">R</span><span class="tag">C++</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <p class="section-label">Career</p>
+  <h2>Work Experience</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">Jun 2025 – Jul 2025</div>
+      <div>
+        <div class="tl-role">Data Analyst Intern</div>
+        <div class="tl-company">MI Lifestyle Marketing Global Pvt Ltd.</div>
+        <ul class="tl-bullets">
+          <li>RFM segmentation on 15M+ customer records using Python, SQL & Power BI</li>
+          <li>Uncovered high-value segments for franchise & distributor targeting</li>
+          <li>Diagnosed operational bottlenecks in shipment & customer support workflows</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">May 2024 – Jul 2024</div>
+      <div>
+        <div class="tl-role">Data Analyst Intern</div>
+        <div class="tl-company">MI Lifestyle Marketing Global Pvt Ltd.</div>
+        <ul class="tl-bullets">
+          <li>Tracked 5+ key KPIs using SQL & Excel to surface performance gaps</li>
+          <li>Enhanced inventory monitoring framework for better stock turnover</li>
+          <li>Identified underperforming warehouses with inventory turnover ratio below 1.0</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <p class="section-label">Work</p>
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-title">Alzheimer's Disease Detection</div>
+        <div class="proj-acc">92%</div>
+      </div>
+      <p class="proj-desc">Hybrid deep learning framework combining EfficientNetB3, Vision Transformer, and XGBoost for MRI-based detection. End-to-end 5-step preprocessing pipeline on large-scale medical imaging datasets.</p>
+      <div class="proj-stack">
+        <span class="tag">Python</span><span class="tag">EfficientNet</span><span class="tag">ViT</span><span class="tag">XGBoost</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-title">Customer Churn Analysis</div>
+        <div class="proj-acc">85%</div>
+      </div>
+      <p class="proj-desc">XGBoost churn prediction model with feature engineering from large-scale customer datasets. Delivered insights via interactive Power BI dashboards and feature importance analysis.</p>
+      <div class="proj-stack">
+        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">XGBoost</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-title">Agriculture Yield Forecasting</div>
+        <div class="proj-acc">90%</div>
+      </div>
+      <p class="proj-desc">Random Forest and SARIMAX-based forecasting model for crop yield and rainfall prediction. Power BI dashboards visualize seasonal trends for data-driven agricultural decisions.</p>
+      <div class="proj-stack">
+        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">SARIMAX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <p class="section-label">Credentials</p>
+  <h2>Certifications</h2>
+  <div class="certs-grid">
+    <div class="cert-pill">
+      <div class="cert-dot"></div>
+      <div>
+        <div class="cert-name">Data Science</div>
+        <div class="cert-by">Udemy · Jun 2025</div>
+      </div>
+    </div>
+    <div class="cert-pill">
+      <div class="cert-dot"></div>
+      <div>
+        <div class="cert-name">MS Excel & Power BI</div>
+        <div class="cert-by">JP Morgan Forage · Sep 2024</div>
+      </div>
+    </div>
+    <div class="cert-pill">
+      <div class="cert-dot"></div>
+      <div>
+        <div class="cert-name">Business Analyst</div>
+        <div class="cert-by">Finaltics · Aug 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <p class="section-label">Let's Talk</p>
+  <h2>Get in Touch</h2>
+  <a href="mailto:hiren.sanghavi@perficient.com" class="contact-email">hiren.sanghavi@perficient.com</a>
+  <div class="contact-links">
+    <a href="https://linkedin.com/in/hiren-sanghavi-311454297" target="_blank">LinkedIn</a>
+    <a href="https://github.com/hiren-sanghavi_prft" target="_blank">GitHub</a>
+    <a href="tel:+919444961535">+91 9444961535</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Hiren Sanghavi</p>
+  <p>Built with GitHub Pages</p>
+</footer>
+
+</body>
+</html>
