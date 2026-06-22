@@ -69,11 +69,9 @@
     .hero-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      gap: 4rem;
     }
     
     .hero-content { max-width: 650px; position: relative; }
@@ -254,16 +252,11 @@
       .tl-date { padding-top: 0; }
       
       .hero-container {
-        flex-direction: column-reverse;
-        gap: 2.5rem;
+        justify-content: center;
         text-align: center;
       }
       .hero-eyebrow { justify-content: center; }
       .hero-ctas { justify-content: center; }
-      .hero-image {
-        width: 240px;
-        height: 240px;
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
