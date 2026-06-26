@@ -5,183 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Hiren Sanghavi — Data Analyst · Perficient</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#0e0c0a;
-  --paper:#f7f4ef;
-  --warm:#ede8e0;
-  --amber:#c4852a;
-  --amber-pale:#f5e9d4;
-  --amber-mid:#e8a94a;
-  --teal:#1a6b6b;
-  --teal-pale:#d4eeee;
-  --teal-mid:#2d9b9b;
-  --rust:#b34a2a;
-  --rust-pale:#f5ddd4;
-  --muted:#6b655c;
-  --border:#ddd8cf;
-  --white:#ffffff;
-}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
-
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--warm)}
-::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1rem 4rem;background:rgba(247,244,239,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--ink);text-decoration:none;letter-spacing:-0.01em}
-.nav-logo span{color:var(--amber)}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{color:var(--muted);font-size:0.82rem;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:color 0.2s}
-.nav-links a:hover{color:var(--amber)}
-.nav-pill{background:var(--ink);color:var(--paper)!important;padding:0.45rem 1.1rem;border-radius:50px;font-size:0.78rem!important;letter-spacing:0.05em!important}
-.nav-pill:hover{background:var(--amber);color:var(--white)!important}
-
-#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:8rem 4rem 4rem;border-bottom:1px solid var(--border)}
-.hero-left{}
-.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);padding:0.35rem 0.9rem;border-radius:50px;margin-bottom:2rem;font-weight:500}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal-mid);flex-shrink:0}
-h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,5.5vw,4.5rem);line-height:1.08;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.5rem}
-h1 .italic{font-style:italic;color:var(--amber)}
-.hero-title-sub{font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem}
-.hero-desc{font-size:1rem;color:var(--muted);max-width:460px;line-height:1.8;margin-bottom:2.5rem}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-fill{padding:0.85rem 2rem;border-radius:6px;background:var(--ink);color:var(--white);font-size:0.88rem;font-weight:500;text-decoration:none;transition:background 0.2s;font-family:'DM Sans',sans-serif}
-.btn-fill:hover{background:var(--amber)}
-.btn-ghost{padding:0.85rem 2rem;border-radius:6px;border:1.5px solid var(--border);color:var(--muted);font-size:0.88rem;font-weight:400;text-decoration:none;transition:all 0.2s;font-family:'DM Sans',sans-serif}
-.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
-.hero-right{display:flex;flex-direction:column;gap:1rem}
-.hero-photo-box{background:var(--warm);border:1px solid var(--border);border-radius:12px;padding:2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.5rem;text-align:center}
-.photo-ring{
-    width:160px;
-    height:160px;
-    border-radius:50%;
-    overflow:hidden;
-    border:3px solid var(--amber-mid);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.photo-ring img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 20%;
-}.hero-name{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--ink)}
-.hero-role{font-size:0.82rem;color:var(--amber);font-weight:500;letter-spacing:0.05em;text-transform:uppercase}
-.hero-college{font-size:0.8rem;color:var(--muted);margin-top:0.25rem}
-.hero-badges{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-top:0.5rem}
-.badge{font-size:0.72rem;padding:0.3rem 0.75rem;border-radius:50px;background:var(--paper);border:1px solid var(--border);color:var(--muted);font-weight:400}
-.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
-.stat-box{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.2rem;text-align:center}
-.stat-num{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--ink);line-height:1}
-.stat-lbl{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-top:0.3rem}
-
-section{padding:5.5rem 4rem;border-bottom:1px solid var(--border)}
-.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:0.75rem;font-weight:500}
-h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--ink);margin-bottom:2.5rem;line-height:1.15;letter-spacing:-0.01em}
-h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--ink);margin-bottom:0.5rem}
-
-#skills{background:var(--warm)}
-.skills-outer{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem}
-.skill-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.5rem;transition:border-color 0.2s,box-shadow 0.2s}
-.skill-card:hover{border-color:var(--amber);box-shadow:0 4px 20px rgba(196,133,42,0.1)}
-.skill-cat{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;font-weight:500}
-.skill-head{font-weight:600;font-size:0.95rem;color:var(--ink);margin-bottom:0.75rem}
-.tags{display:flex;flex-wrap:wrap;gap:0.4rem}
-.tag{font-size:0.72rem;padding:0.25rem 0.65rem;border-radius:4px;background:var(--amber-pale);color:var(--amber);font-weight:500;letter-spacing:0.03em}
-.tag.teal{background:var(--teal-pale);color:var(--teal)}
-.tag.rust{background:var(--rust-pale);color:var(--rust)}
-.tag.ink{background:var(--warm);color:var(--muted)}
-
-.proj-featured{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:2.5rem}
-.proj-featured-header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:2rem;padding:2.5rem 2.5rem 0}
-.feat-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);background:var(--teal);padding:0.3rem 0.75rem;border-radius:50px;margin-bottom:1rem;display:inline-block}
-.proj-title-big{font-family:'DM Serif Display',serif;font-size:1.7rem;color:var(--ink);margin-bottom:0.4rem}
-.proj-subtitle{font-size:0.88rem;color:var(--muted);margin-bottom:1rem}
-.proj-desc-text{font-size:0.9rem;color:var(--muted);line-height:1.75;max-width:600px;margin-bottom:1.5rem}
-.outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
-.outcome-box{background:var(--warm);border-radius:8px;padding:1rem;text-align:center}
-.outcome-num{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--amber);line-height:1}
-.outcome-lbl{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-top:0.25rem}
-.proj-actions{display:flex;gap:0.75rem;flex-wrap:wrap;padding-bottom:1.5rem}
-.proj-link{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.25rem;border-radius:6px;font-size:0.82rem;font-weight:500;text-decoration:none;transition:all 0.2s}
-.proj-link.solid{background:var(--ink);color:var(--white)}
-.proj-link.solid:hover{background:var(--amber)}
-.proj-link.outline{border:1.5px solid var(--border);color:var(--muted)}
-.proj-link.outline:hover{border-color:var(--ink);color:var(--ink)}
-.ci-badge{display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;border-radius:50px;background:var(--teal-pale);color:var(--teal);font-size:0.72rem;font-weight:500;font-family:'JetBrains Mono',monospace}
-.ci-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0}
-.screens-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border);margin-top:0.5rem}
-.screen-pane{padding:1.75rem;background:var(--warm)}
-.screen-pane:first-child{border-right:1px solid var(--border)}
-.screen-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem}
-.screen-img{width:100%;border-radius:6px;border:1px solid var(--border);display:block}
-.phases{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
-.phase{font-size:0.75rem;padding:0.3rem 0.85rem;border-radius:50px;border:1px solid var(--border);color:var(--muted);background:var(--paper);font-weight:400}
-
-.small-projs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
-.small-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.75rem;display:flex;flex-direction:column;gap:0.75rem;transition:border-color 0.2s}
-.small-card:hover{border-color:var(--amber)}
-.small-acc{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--amber);line-height:1;margin-bottom:0.25rem}
-.small-title{font-weight:600;font-size:0.95rem;color:var(--ink)}
-.small-desc{font-size:0.85rem;color:var(--muted);line-height:1.7}
-
-#experience{background:var(--warm)}
-.perf-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2.5rem;margin-bottom:2rem}
-.perf-header{display:flex;align-items:flex-start;gap:2rem;margin-bottom:2rem;flex-wrap:wrap}
-.perf-badge{background:var(--ink);color:var(--white);font-family:'JetBrains Mono',monospace;font-size:0.7rem;padding:0.3rem 0.85rem;border-radius:50px;letter-spacing:0.06em;white-space:nowrap;align-self:flex-start;margin-top:0.3rem}
-.perf-role{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--ink)}
-.perf-company{font-size:0.88rem;color:var(--amber);font-weight:500;margin-top:0.2rem}
-.perf-date{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--muted);margin-top:0.25rem}
-.reflect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.reflect-box{background:var(--warm);border-radius:8px;padding:1.4rem}
-.reflect-icon{font-size:1.4rem;margin-bottom:0.5rem}
-.reflect-title{font-weight:600;font-size:0.85rem;color:var(--ink);margin-bottom:0.75rem;letter-spacing:0.03em}
-.reflect-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
-.reflect-list li{font-size:0.82rem;color:var(--muted);padding-left:1.1rem;position:relative}
-.reflect-list li::before{content:'›';position:absolute;left:0;color:var(--amber);font-weight:600}
-.shoutout-box{margin-top:1rem;background:var(--amber-pale);border-radius:8px;padding:1.4rem;border-left:3px solid var(--amber)}
-.shoutout-title{font-weight:600;font-size:0.85rem;color:var(--amber);margin-bottom:0.5rem}
-.shoutout-text{font-size:0.85rem;color:var(--muted);line-height:1.7}
-.tl-list{display:flex;flex-direction:column;gap:0;max-width:720px}
-.tl-row{display:grid;grid-template-columns:130px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--border)}
-.tl-row:last-child{border-bottom:none}
-.tl-date{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);line-height:1.7;padding-top:0.2rem}
-.tl-role-name{font-weight:600;font-size:0.95rem;color:var(--ink)}
-.tl-co{font-size:0.82rem;color:var(--amber);margin-bottom:0.6rem}
-.tl-pts{list-style:none;display:flex;flex-direction:column;gap:0.35rem}
-.tl-pts li{font-size:0.84rem;color:var(--muted);padding-left:1.1rem;position:relative}
-.tl-pts li::before{content:'—';position:absolute;left:0;color:var(--border)}
-
-#contact{text-align:center}
-.contact-inner{max-width:560px;margin:0 auto}
-.big-email{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.8rem);color:var(--ink);text-decoration:none;border-bottom:2px solid var(--amber);padding-bottom:3px;display:inline-block;transition:color 0.2s}
-.big-email:hover{color:var(--amber)}
-.contact-pills{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2rem}
-.cpill{padding:0.55rem 1.4rem;border-radius:50px;border:1.5px solid var(--border);font-size:0.8rem;color:var(--muted);text-decoration:none;transition:all 0.2s;font-weight:400}
-.cpill:hover{border-color:var(--amber);color:var(--amber)}
-
-footer{padding:1.75rem 4rem;display:flex;justify-content:space-between;align-items:center}
-footer p{font-size:0.75rem;color:var(--muted)}
-
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem}
-  .nav-links li:not(:last-child){display:none}
-  #hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem}
-  section{padding:4rem 1.5rem}
-  .outcomes-grid{grid-template-columns:repeat(2,1fr)}
-  .screens-wrap{grid-template-columns:1fr}
-  .screen-pane:first-child{border-right:none;border-bottom:1px solid var(--border)}
-  footer{padding:1.5rem;flex-direction:column;gap:0.5rem;text-align:center}
-  .perf-header{flex-direction:column;gap:0.75rem}
-  .tl-row{grid-template-columns:1fr;gap:0.5rem}
-}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -192,7 +16,7 @@ footer p{font-size:0.75rem;color:var(--muted)}
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://linkedin.com/in/hiren-sanghavi-311454297" target="_blank" class="nav-pill">LinkedIn ↗</a></li>
+    <li><a href="https://www.linkedin.com/in/hiren-sanghavi-311454297" target="_blank" class="nav-pill">LinkedIn ↗</a></li>
   </ul>
 </nav>
 
@@ -308,6 +132,14 @@ footer p{font-size:0.75rem;color:var(--muted)}
         <span class="tag ink">Git</span><span class="tag ink">pgAdmin</span><span class="tag ink">VS Code</span>
       </div>
     </div>
+    <div class="skill-card">
+      <div class="skill-cat">Work</div>
+      <div class="skill-head">Domain</div>
+      <div class="tags">
+        <span class="tag teal">Data Analytics</span><span class="tag teal">Data Engineering</span>
+        <span class="tag teal">Business Intelligence</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -337,7 +169,7 @@ footer p{font-size:0.75rem;color:var(--muted)}
           <div class="outcome-box"><div class="outcome-num">3× </div><div class="outcome-lbl">SQL · Pandas · PySpark</div></div>
         </div>
         <div class="proj-actions">
-          <a href="https://github.com/Perficient-Academy/GGTP-IND-26-06-DP-FUN-410915.git" target="_blank" class="proj-link solid">→ View Repository</a>
+          <a href="https://github.com/Perficient-Academy/GGTP-IND-26-06-DP-FUN-410915" target="_blank" class="proj-link solid">→ View Repository</a>
           <span class="ci-badge"><span class="ci-dot"></span> Pipeline Passing</span>
           <a href="#" class="proj-link outline">Power BI Dashboard ↓</a>
         </div>
@@ -473,10 +305,10 @@ footer p{font-size:0.75rem;color:var(--muted)}
   <div class="contact-inner">
     <p class="sec-eyebrow">Get in Touch</p>
     <h2>Let's Talk</h2>
-    <a href="mailto:hirensm2004@gmail.com" class="big-email">hirensm2004@gmail.com</a>
+    <a href="mailto:hiren.sanghavi@perficient.com" class="big-email">hiren.sanghavi@perficient.com</a>
     <div class="contact-pills">
-      <a href="https://linkedin.com/in/hiren-sanghavi-311454297" target="_blank" class="cpill">LinkedIn ↗</a>
-      <a href="https://github.com/hirensanghavi" target="_blank" class="cpill">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/hiren-sanghavi-311454297" target="_blank" class="cpill">LinkedIn ↗</a>
+      <a href="https://github.com/Perficient-Academy/GGTP-IND-26-06-DP-FUN-410915" target="_blank" class="cpill">GitHub ↗</a>
       <a href="tel:+919444961535" class="cpill">+91 94449 61535</a>
     </div>
   </div>
@@ -487,5 +319,7 @@ footer p{font-size:0.75rem;color:var(--muted)}
   <p>Hosted on GitHub Pages · hiren-sanghavi-prft.github.io</p>
 </footer>
 
+
+<script src="script.js"></script>
 </body>
 </html>
